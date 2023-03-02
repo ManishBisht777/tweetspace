@@ -47,10 +47,10 @@ function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
 
   return (
-    <Container className="md:flex md:justify-between md:p-5 md:items-center">
+    <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">
       <div>
-        <p className=" text-xl font-semibold md:hidden ">Main Menu</p>
-        <ul className="flex flex-col ml-3 mt-3 md:flex-row md:gap-8 md:ml-0 md:mt-0">
+        <p className=" text-xl font-semibold lg:hidden ">Main Menu</p>
+        <ul className="flex flex-col ml-3 mt-3 lg:flex-row lg:gap-8 lg:ml-0 lg:mt-0">
           {MenuLinks.map((menuItem) => (
             <NavItem
               activeLink={activeLink}
@@ -61,10 +61,10 @@ function NavList({}: Props) {
           ))}
         </ul>
       </div>
-      <div className="hidden md:block">Logo</div>
-      <div className="mt-5 md:mt-0">
-        <p className=" text-xl font-semibold md:hidden">Secondary Menu</p>
-        <ul className="flex flex-col ml-3 md:ml-0 mt-3 md:mt-0 md:flex-row md:gap-8">
+      <div className="hidden lg:block">Logo</div>
+      <div className="mt-5 lg:mt-0">
+        <p className=" text-xl font-semibold lg:hidden">Secondary Menu</p>
+        <ul className="flex flex-col ml-3 lg:ml-0 mt-3 lg:mt-0 lg:flex-row lg:gap-8">
           {SecondaryLinks.map((menuItem) => (
             <NavItem
               activeLink={activeLink}

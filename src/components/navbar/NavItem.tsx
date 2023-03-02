@@ -14,7 +14,7 @@ const NavItem = ({ activeLink, setActiveLink, menuItem }: Props) => {
 
   return (
     <Link
-      className={`px-3 py-1 md:border-l-0 border-l-2 w-fit
+      className={`px-3 py-1 lg:border-l-0 border-l-2 w-fit
       ${
         isActive
           ? `border-accent-base text-accent-base`
@@ -22,6 +22,7 @@ const NavItem = ({ activeLink, setActiveLink, menuItem }: Props) => {
       }
       `}
       key={menuItem.name}
+      onClick={() => setActiveLink(menuItem.to)}
       href={menuItem.to}
     >
       {menuItem.name}
