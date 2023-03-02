@@ -22,6 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {`
           html {
             font-family: ${robotto.style.fontFamily};
+            font-size: 1.1rem;
           }
         `}
       </style>

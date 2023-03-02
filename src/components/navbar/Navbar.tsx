@@ -11,7 +11,7 @@ const Navbar = ({ isMobile }: Props) => {
 
   if (isMobile)
     return (
-      <div>
+      <div className="text-skin-base font-medium px-4">
         <div className="flex justify-between items-center py-8">
           <button onClick={() => setNavOpen(true)}>Open</button>
           <p>Logo</p>
