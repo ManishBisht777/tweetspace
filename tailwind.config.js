@@ -22,17 +22,14 @@ module.exports = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: withOpacity("--color-accent"),
+          base: withOpacity("--color-accent"),
+          muted: withOpacity("--color-accent-muted"),
           inverted: withOpacity("--color-accent-inverted"),
-        },
-        primary: {
-          DEFAULT: withOpacity("--color-bg"),
-          inverted: withOpacity("--color-bg-inverted"),
         },
       },
       textColor: {
         skin: {
-          base: withOpacity("--color-text"),
+          base: withOpacity("--color-text-base"),
           inverted: withOpacity("--color-text-inverted"),
         },
       },

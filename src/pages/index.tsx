@@ -10,7 +10,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-pink bg-PrimaryBlack">lol</h1>
+        <h1 className="text-skin-base">lol</h1>
+        <h1 className="text-skin-inverted">letsgo</h1>
+        <div className="w-10 h-10 rounded-lg bg-skin-inverted text-skin-inverted">
+          yo
+        </div>
+        <div className="w-10 h-10 flex justify-center items-center bg-accent-base">
+          yo
+        </div>
+        <div className="w-10 h-10 flex justify-center items-center bg-accent-muted">
+          yo
+        </div>
+        <div className="w-10 h-10 flex justify-center items-center bg-accent-inverted">
+          yo
+        </div>
       </main>
     </>
   );
