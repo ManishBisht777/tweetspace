@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const withOpacity =
   (variable) =>
@@ -38,6 +39,10 @@ module.exports = {
           base: withOpacity("--color-bg"),
           inverted: withOpacity("--color-bg-inverted"),
         },
+      },
+      fontFamily: {
+        Montserrat: ["var(--font-montserrat)", ...defaultTheme.fontFamily.sans],
+        Robotto: ["var(--font-robotto)", ...defaultTheme.fontFamily.sans],
       },
     },
   },
