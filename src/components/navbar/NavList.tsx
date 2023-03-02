@@ -1,24 +1,80 @@
 import Container from "@/layouts/Container";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import NavItem from "./NavItem";
+
+const MenuLinks = [
+  {
+    to: "/",
+    name: "Home",
+  },
+  {
+    to: "/explore",
+    name: "Explore",
+  },
+  {
+    to: "/creators",
+    name: "Creators",
+  },
+  {
+    to: "/spaces",
+    name: "Spaces",
+  },
+];
+
+const SecondaryLinks = [
+  {
+    to: "/login",
+    name: "Login",
+  },
+  {
+    to: "/github",
+    name: "Github",
+  },
+  {
+    to: "/twitter",
+    name: "Twitter",
+  },
+  {
+    to: "/bmc",
+    name: "Buy Me Coffee",
+  },
+];
+
 type Props = {};
 
 function NavList({}: Props) {
+  const [activeLink, setActiveLink] = useState<string>("/");
+
   return (
-    <Container className="flex justify-between items-center py-8">
-      <ul className="flex gap-12">
-        <Link href="/">Home</Link>
-        <Link href="/explore">Explore</Link>
-        <Link href="/spaces">Spaces</Link>
-        <Link href="/users">Creators</Link>
-      </ul>
-      <div>Logo</div>
-      <ul className="flex gap-12">
-        <Link href="/explore">Login</Link>
-        <Link href="/">Github</Link>
-        <Link href="/spaces">Twitter</Link>
-        <Link href="/users">Buy Me Coffee</Link>
-      </ul>
+    <Container>
+      <div>
+        <p className=" text-xl font-semibold">Main Menu</p>
+        <ul className="flex flex-col ml-3 mt-3">
+          {MenuLinks.map((menuItem) => (
+            <NavItem
+              activeLink={activeLink}
+              key={menuItem.name}
+              setActiveLink={setActiveLink}
+              menuItem={menuItem}
+            />
+          ))}
+        </ul>
+      </div>
+      <div className="hidden">Logo</div>
+      <div className="mt-5">
+        <p className=" text-xl font-semibold">Secondary Menu</p>
+        <ul className="flex flex-col ml-3 mt-3">
+          {SecondaryLinks.map((menuItem) => (
+            <NavItem
+              activeLink={activeLink}
+              key={menuItem.name}
+              setActiveLink={setActiveLink}
+              menuItem={menuItem}
+            />
+          ))}
+        </ul>
+      </div>
     </Container>
   );
 }
