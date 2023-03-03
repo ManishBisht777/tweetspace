@@ -5,7 +5,7 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <Container className="flex flex-col justify-center items-center gap-4 h-[calc(70vh-2rem)]">
+    <Container className="flex flex-col justify-center items-center gap-4 h-[calc(50vh-2rem)] md:h-[calc(70vh-2rem)]">
       <p className="text-sm bg-accent-inverted/10 px-6 py-1 rounded-full text-accent-inverted font-medium">
         One stop to Spaces and events
       </p>
