@@ -10,7 +10,7 @@ const TestimonialCard = (props: Props) => {
           <div className="flex  flex-col items-center gap-2">
             <div className="w-12 h-12 bg-accent-base rounded-full"></div>
             <p className="text-lg font-bold text-pink-600 sm:text-xl">
-              Stayin' Alive
+              Stayin Alive
             </p>
           </div>
 
