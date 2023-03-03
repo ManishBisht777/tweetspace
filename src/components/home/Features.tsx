@@ -5,7 +5,7 @@ type Props = {};
 
 const Features = (props: Props) => {
   return (
-    <Container className="my-20">
+    <Container className="my-10">
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="md:w-5/12 w-full h-80 rounded-lg bg-accent-base"></div>
         <div className="md:w-3/12 w-full h-80 rounded-lg bg-accent-muted"></div>
@@ -17,7 +17,7 @@ const Features = (props: Props) => {
           <p className="text-sm bg-accent-inverted/10 md:-mx-4 px-6 py-1 rounded-full text-accent-inverted font-medium">
             One stop to Spaces and events
           </p>
-          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-right">
+          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-left">
             Lorem lol hehe xd damn hehe xd damn
           </h3>
           <p className="text-skin-base/80 text-sm text-center md:text-left">
@@ -30,7 +30,7 @@ const Features = (props: Props) => {
           <p className="text-sm bg-accent-inverted/10 md:-mx-4 px-6 py-1 rounded-full text-accent-inverted font-medium">
             One stop to Spaces and events
           </p>
-          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-right">
+          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-left">
             Lorem lol hehe xd damn hehe xd damn
           </h3>
           <p className="text-skin-base/80 text-sm text-center md:text-left">
