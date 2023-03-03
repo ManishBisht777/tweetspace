@@ -1,4 +1,5 @@
-import Hero from "@/components/hero/Hero";
+import Features from "@/components/home/Features";
+import Hero from "@/components/home/Hero";
 import Navbar from "@/components/navbar/Navbar";
 import Head from "@/components/utilities/Head";
 import useArea from "@/hooks/useArea";
@@ -12,6 +13,7 @@ export default function Home() {
       <section className="z-0">
         {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
         <Hero />
+        <Features />
       </section>
     </>
   );
