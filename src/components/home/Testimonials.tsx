@@ -41,7 +41,7 @@ const Testimonial = () => {
         <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:items-center lg:gap-x-16">
           <div className="max-w-xl text-center  sm:text-left">
             <h2 className="text-xl flex flex-col font-bold tracking-tight md:text-2xl text-skin-base">
-              Don't just take our word for it... Read reviews from our customers
+              Dont just take our word for it... Read reviews from our customers
             </h2>
 
             <p className="mt-4 text-accent-base font-medium text-sm">
