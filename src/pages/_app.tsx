@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import Navbar from "@/components/navbar/Navbar";
 import useArea from "@/hooks/useArea";
 import "@/styles/globals.css";
@@ -17,9 +18,11 @@ const robotto = Roboto({
   variable: "--font-robotto",
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   const { width } = useArea();
-
   return (
     <>
       <style jsx global>
@@ -30,11 +33,12 @@ export default function App({ Component, pageProps }: AppProps) {
           }
         `}
       </style>
-      {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
-      <main className={`${robotto.variable} ${montserrat.variable}`}>
-        <Component {...pageProps} />
-      </main>
-      ;
+      <SessionProvider session={session}>
+        {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
+        <main className={`${robotto.variable} ${montserrat.variable}`}>
+          <Component {...pageProps} />
+        </main>
+      </SessionProvider>
     </>
   );
 }

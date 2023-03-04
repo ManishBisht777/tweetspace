@@ -1,7 +1,7 @@
 import Container from "@/layouts/Container";
-import Link from "next/link";
 import React, { useState } from "react";
 import NavItem from "./NavItem";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const MenuLinks = [
   {
@@ -24,10 +24,6 @@ const MenuLinks = [
 
 const SecondaryLinks = [
   {
-    to: "/login",
-    name: "Login",
-  },
-  {
     to: "/github",
     name: "Github",
   },
@@ -45,6 +41,8 @@ type Props = {};
 
 function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
+  const { data: session } = useSession();
+  console.log(session);
 
   return (
     <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">
@@ -73,6 +71,15 @@ function NavList({}: Props) {
               menuItem={menuItem}
             />
           ))}
+          {session ? (
+            <img
+              className="w-10 h-10 rounded-full"
+              src={session.user?.image}
+              alt={session.user?.name}
+            />
+          ) : (
+            <button onClick={() => signIn()}>Sign in</button>
+          )}
         </ul>
       </div>
     </Container>
