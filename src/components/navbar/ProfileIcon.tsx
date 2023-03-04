@@ -3,9 +3,7 @@ import { Session } from "next-auth";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-interface UserSession extends Session {
-  id: string;
-}
+import { UserSession } from "@/types/type";
 
 type Props = {
   session: UserSession;

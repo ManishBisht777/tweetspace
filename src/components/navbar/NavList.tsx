@@ -2,7 +2,6 @@ import Container from "@/layouts/Container";
 import React, { useState } from "react";
 import NavItem from "./NavItem";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Link from "next/link";
 import ProfileIcon from "./ProfileIcon";
 
 const MenuLinks = [
