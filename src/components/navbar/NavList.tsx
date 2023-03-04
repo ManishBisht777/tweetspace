@@ -42,7 +42,6 @@ type Props = {};
 function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
   const { data: session } = useSession();
-  console.log(session);
 
   return (
     <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">
