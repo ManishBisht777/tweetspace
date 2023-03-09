@@ -5,6 +5,14 @@ type Props = {};
 
 const AddSpaceModal = (props: Props) => {
   let [isOpen, setIsOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    genre: "all",
+    audio: "",
+    part: "",
+    image: "",
+  });
 
   return (
     <div>
@@ -40,9 +48,9 @@ const AddSpaceModal = (props: Props) => {
               <div className="flex w-full justify-between ">
                 <input
                   className="w-[60%] rounded-sm border-none bg-[#C6DBCE] p-2"
-                  type="text"
-                  name="genre"
-                  placeholder="Genre"
+                  type="date"
+                  name="date"
+                  placeholder="date"
                   id=""
                   // onChange={(e) => handleFormData(e)}
                 />
@@ -55,26 +63,25 @@ const AddSpaceModal = (props: Props) => {
                   // onChange={(e) => handleFormData(e)}
                 />
               </div>
-              <input
-                className="w-[37%] rounded-sm border-none bg-[#C6DBCE] p-2"
-                type="text"
-                name="part"
-                placeholder="Part"
-                id=""
-                //   onChange={(e) => handleFormData(e)}
-              />
-              <div className="flex h-[2.5rem] cursor-pointer flex-col items-center justify-center rounded-md border border-dashed border-[#8B9A91]">
-                <label className="flex h-full w-full items-center justify-center text-[#303933]">
-                  {/* <BsMusicNote /> */}
-                  <span className="">Add Audio</span>
-                  {/* <Audio
-                  url={audioUrl}
-                  onUpload={(url) => {
-                    setAudioUrl(url);
-                  }}
-                /> */}
-                </label>
+              <div className="flex justify-between">
+                <input
+                  className="w-[49%] rounded-sm border-none bg-[#C6DBCE] p-2"
+                  type="time"
+                  name="start"
+                  placeholder="Start time"
+                  id=""
+                  //   onChange={(e) => handleFormData(e)}
+                />
+                <input
+                  className="w-[49%] rounded-sm border-none bg-[#C6DBCE] p-2"
+                  type="time"
+                  name="end"
+                  placeholder="End time"
+                  id=""
+                  //   onChange={(e) => handleFormData(e)}
+                />
               </div>
+
               {/* <ModalImage
               url={img_url}
               onUpload={(url) => {
@@ -96,9 +103,6 @@ const AddSpaceModal = (props: Props) => {
             >
               X
             </button>
-
-            <button onClick={() => setIsOpen(false)}>Deactivate</button>
-            <button onClick={() => setIsOpen(false)}>Cancel</button>
           </Dialog.Panel>
         </div>
       </Dialog>
