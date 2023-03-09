@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
+import { addSpace } from "@/server/lib/addSpace";
 
-type Props = {};
+type Props = {
+  session: any;
+};
 
-const AddSpaceModal = (props: Props) => {
+const AddSpaceModal = ({ session }: Props) => {
   let [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    genre: "all",
-    audio: "",
-    part: "",
+    date: "",
+    start: "",
+    end: "",
     image: "",
   });
+
+  const handleFormDataChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    addSpace(formData, session);
+  };
 
   return (
     <div>
@@ -35,7 +50,7 @@ const AddSpaceModal = (props: Props) => {
             </Dialog.Title>
             <form
               className="flex flex-col gap-2"
-              // onSubmit={(e) => handleSubmit(e)}
+              onSubmit={(e) => handleSubmit(e)}
             >
               <input
                 className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"
@@ -43,7 +58,7 @@ const AddSpaceModal = (props: Props) => {
                 name="title"
                 placeholder="Title"
                 id=""
-                //   onChange={(e) => handleFormData(e)}
+                onChange={(e) => handleFormDataChange(e)}
               />
               <div className="flex w-full justify-between ">
                 <input
@@ -52,7 +67,7 @@ const AddSpaceModal = (props: Props) => {
                   name="date"
                   placeholder="date"
                   id=""
-                  // onChange={(e) => handleFormData(e)}
+                  onChange={(e) => handleFormDataChange(e)}
                 />
                 <input
                   className="w-[37%] rounded-sm border-none bg-[#C6DBCE] p-2"
@@ -60,7 +75,7 @@ const AddSpaceModal = (props: Props) => {
                   name="description"
                   placeholder="Description"
                   id=""
-                  // onChange={(e) => handleFormData(e)}
+                  onChange={(e) => handleFormDataChange(e)}
                 />
               </div>
               <div className="flex justify-between">
@@ -70,7 +85,7 @@ const AddSpaceModal = (props: Props) => {
                   name="start"
                   placeholder="Start time"
                   id=""
-                  //   onChange={(e) => handleFormData(e)}
+                  onChange={(e) => handleFormDataChange(e)}
                 />
                 <input
                   className="w-[49%] rounded-sm border-none bg-[#C6DBCE] p-2"
@@ -78,7 +93,7 @@ const AddSpaceModal = (props: Props) => {
                   name="end"
                   placeholder="End time"
                   id=""
-                  //   onChange={(e) => handleFormData(e)}
+                  onChange={(e) => handleFormDataChange(e)}
                 />
               </div>
 

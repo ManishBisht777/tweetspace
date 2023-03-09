@@ -1,11 +1,16 @@
 import AddSpaceModal from "@/components/account/AddSpaceModal";
 import SpaceCard from "@/components/SpaceCard";
 import Container from "@/layouts/Container";
+import { useSession } from "next-auth/react";
 import React from "react";
 
 type Props = {};
 
 const index = (props: Props) => {
+  const { data: session } = useSession();
+
+  console.log(session);
+
   return (
     <Container>
       <div className="flex justify-center items-center flex-col md:gap-1">
@@ -38,7 +43,7 @@ const index = (props: Props) => {
       </div>
 
       <div>
-        <AddSpaceModal />
+        <AddSpaceModal session={session} />
         <SpaceCard />
       </div>
     </Container>
