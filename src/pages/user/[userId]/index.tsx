@@ -1,15 +1,23 @@
 import AddSpaceModal from "@/components/account/AddSpaceModal";
 import SpaceCard from "@/components/SpaceCard";
 import Container from "@/layouts/Container";
+import { getMyPosts } from "@/server/lib/getSpaces";
 import { useSession } from "next-auth/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 const index = (props: Props) => {
   const { data: session } = useSession();
+  const [spaces, setSpaces] = useState<any>();
 
   console.log(session);
+
+  useEffect(() => {
+    (async () => {
+      setSpaces(await getMyPosts(session?.id));
+    })();
+  }, [session?.user]);
 
   return (
     <Container>
@@ -44,7 +52,9 @@ const index = (props: Props) => {
 
       <div>
         <AddSpaceModal session={session} />
-        <SpaceCard />
+        <div className="flex gap-2 flex-wrap">
+          {spaces && spaces.map((space) => <SpaceCard />)}
+        </div>
       </div>
     </Container>
   );
