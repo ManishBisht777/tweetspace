@@ -19,7 +19,9 @@ const robotto = Roboto({
 });
 
 export default function App({
+  // @ts-ignore
   Component,
+  // @ts-ignore
   pageProps: { session, ...pageProps },
 }) {
   const { width } = useArea();

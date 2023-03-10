@@ -1,12 +1,11 @@
 import supabase from "@/server/supabase";
-import { Session } from "next-auth";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
 import { UserSession } from "@/types/type";
 
 type Props = {
-  session: UserSession;
+  session: any;
 };
 
 const ProfileIcon = ({ session }: Props) => {

@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {};
 
-const index = (props: Props) => {
+const UserProfile = (props: Props) => {
   const { data: session } = useSession();
   const [spaces, setSpaces] = useState<any>();
 
@@ -15,6 +15,7 @@ const index = (props: Props) => {
 
   useEffect(() => {
     (async () => {
+      // @ts-ignore
       setSpaces(await getMyPosts(session?.id));
     })();
   }, [session?.user]);
@@ -53,11 +54,12 @@ const index = (props: Props) => {
       <div>
         <AddSpaceModal session={session} />
         <div className="flex gap-2 flex-wrap">
-          {spaces && spaces.map((space) => <SpaceCard />)}
+          {spaces &&
+            spaces.map((space: any, idx: any) => <SpaceCard key={idx} />)}
         </div>
       </div>
     </Container>
   );
 };
 
-export default index;
+export default UserProfile;
