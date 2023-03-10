@@ -1,20 +1,23 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { addSpace } from "@/server/lib/addSpace";
+import ImageUpload from "./ImageUpload";
 
 type Props = {
   session: any;
 };
 
 const AddSpaceModal = ({ session }: Props) => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [imgUrl, setImgUrl] = useState("");
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     date: "",
     start: "",
     end: "",
-    image: "",
+    link: "",
   });
 
   const handleFormDataChange = (e: any) => {
@@ -26,7 +29,7 @@ const AddSpaceModal = ({ session }: Props) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    addSpace(formData, session);
+    addSpace(formData, session, imgUrl);
   };
 
   return (
@@ -97,12 +100,21 @@ const AddSpaceModal = ({ session }: Props) => {
                 />
               </div>
 
-              {/* <ModalImage
-              url={img_url}
-              onUpload={(url) => {
-                setEventImageUrl(url);
-              }}
-            /> */}
+              <ImageUpload
+                url={imgUrl}
+                onUpload={(url) => {
+                  setImgUrl(url);
+                }}
+              />
+
+              <input
+                className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"
+                type="text"
+                name="link"
+                placeholder="Twitter link"
+                id=""
+                onChange={(e) => handleFormDataChange(e)}
+              />
               <button
                 type="submit"
                 className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"

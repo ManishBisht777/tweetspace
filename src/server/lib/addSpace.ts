@@ -1,6 +1,6 @@
 import supabase from "../supabase";
 
-export async function addSpace(formData: any, session: any) {
+export async function addSpace(formData: any, session: any, imgUrl: any) {
   console.log(formData);
   const { data, error } = await supabase.from("spaces").insert([
     {
@@ -10,7 +10,7 @@ export async function addSpace(formData: any, session: any) {
       from: formData.start,
       to: formData.end,
       created_by: session.id,
-      cover: formData.image,
+      cover: imgUrl,
     },
   ]);
   if (data) {
