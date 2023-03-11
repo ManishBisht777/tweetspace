@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { addSpace } from "@/server/lib/addSpace";
+import { RxCross2 } from "react-icons/rx";
 
 type Props = {
   session: any;
@@ -49,42 +50,39 @@ const AddSpaceModal = ({ session }: Props) => {
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
           <Dialog.Panel className="relative w-full max-w-[22rem] rounded bg-white py-6 px-4">
-            <Dialog.Title className="mb-7 font-bold text-[#303933]">
+            <Dialog.Title className="mb-7 font-bold text-accent-base/80 text-xl">
               Add Space
             </Dialog.Title>
             <form
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-2 text-accent-base "
               onSubmit={(e) => handleSubmit(e)}
             >
               <input
-                className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"
+                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:border-accent-base focus:outline-accent-base"
                 type="text"
                 name="title"
                 placeholder="Title"
                 id=""
                 onChange={(e) => handleFormDataChange(e)}
               />
-              <div className="flex w-full justify-between ">
-                <input
-                  className="w-[60%] rounded-sm border-none bg-[#C6DBCE] p-2"
-                  type="date"
-                  name="date"
-                  placeholder="date"
-                  id=""
-                  onChange={(e) => handleFormDataChange(e)}
-                />
-                <input
-                  className="w-[37%] rounded-sm border-none bg-[#C6DBCE] p-2"
-                  type="text"
-                  name="description"
-                  placeholder="Description"
-                  id=""
-                  onChange={(e) => handleFormDataChange(e)}
-                />
-              </div>
+              <input
+                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
+                type="date"
+                name="date"
+                placeholder="date"
+                id=""
+                onChange={(e) => handleFormDataChange(e)}
+              />
+              <textarea
+                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base "
+                name="description"
+                placeholder="Description"
+                id=""
+                onChange={(e) => handleFormDataChange(e)}
+              />
               <div className="flex justify-between">
                 <input
-                  className="w-[49%] rounded-sm border-none bg-[#C6DBCE] p-2"
+                  className="w-[49%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                   type="time"
                   name="start"
                   placeholder="Start time"
@@ -92,7 +90,7 @@ const AddSpaceModal = ({ session }: Props) => {
                   onChange={(e) => handleFormDataChange(e)}
                 />
                 <input
-                  className="w-[49%] rounded-sm border-none bg-[#C6DBCE] p-2"
+                  className="w-[49%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                   type="time"
                   name="end"
                   placeholder="End time"
@@ -102,7 +100,7 @@ const AddSpaceModal = ({ session }: Props) => {
               </div>
 
               <input
-                className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"
+                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                 type="text"
                 name="link"
                 placeholder="Twitter link"
@@ -111,7 +109,7 @@ const AddSpaceModal = ({ session }: Props) => {
               />
               <button
                 type="submit"
-                className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"
+                className="w-full rounded-sm border-none bg-accent-base text-skin-inverted p-2 focus:outline-accent-base"
               >
                 Submit
               </button>
@@ -119,10 +117,10 @@ const AddSpaceModal = ({ session }: Props) => {
 
             <button
               type="submit"
-              className="absolute top-5 right-5"
+              className="absolute top-5 right-5 text-2xl"
               onClick={() => setIsOpen(false)}
             >
-              X
+              <RxCross2 />
             </button>
           </Dialog.Panel>
         </div>
