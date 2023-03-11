@@ -34,7 +34,9 @@ const AddSpaceModal = ({ session }: Props) => {
   return (
     <div className="my-8">
       <div className="flex justify-between">
-        <p>3 Spaces</p>
+        <p className="px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm">
+          3 Spaces
+        </p>
         <button
           className="px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm"
           onClick={() => setIsOpen(true)}

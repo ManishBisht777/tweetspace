@@ -12,8 +12,6 @@ const UserProfile = (props: Props) => {
   const { data: session } = useSession();
   const [spaces, setSpaces] = useState<any>();
 
-  console.log(session);
-
   useEffect(() => {
     (async () => {
       // @ts-ignore
