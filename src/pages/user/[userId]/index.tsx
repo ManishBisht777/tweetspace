@@ -58,9 +58,11 @@ const UserProfile = (props: Props) => {
 
       <div>
         <AddSpaceModal session={session} />
-        <div className="flex gap-2 flex-wrap justify-center">
+        <div className="flex gap-3 flex-wrap justify-center">
           {spaces &&
-            spaces.map((space: any, idx: any) => <SpaceCard key={idx} />)}
+            spaces.map((space: any, idx: any) => (
+              <SpaceCard key={idx} space={space} />
+            ))}
         </div>
       </div>
     </Container>
