@@ -13,3 +13,12 @@ export const getMyPosts = async (userId: any) => {
   if (error) console.log(error, "error from getMyposts");
   return data;
 };
+
+export const getAllSpaces = async (start: number, end: number) => {
+  const { data: spaces, error } = await supabase
+    .from("spaces")
+    .select("*")
+    .range(start, end);
+
+  return spaces;
+};
