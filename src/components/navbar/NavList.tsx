@@ -1,8 +1,10 @@
 import Container from "@/layouts/Container";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavItem from "./NavItem";
 import { useSession, signIn, signOut } from "next-auth/react";
 import ProfileIcon from "./ProfileIcon";
+import useStore from "@/store/store";
+import { UserSession } from "@/types/type";
 
 const MenuLinks = [
   {
@@ -43,6 +45,12 @@ type Props = {};
 function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
   const { data: session } = useSession();
+
+  // const setSession = useStore((state) => state.setSession);
+
+  // useEffect(() => {
+  //   setSession(session);
+  // }, [session]);
 
   return (
     <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">

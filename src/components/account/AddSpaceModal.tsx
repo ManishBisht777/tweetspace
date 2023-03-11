@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { addSpace } from "@/server/lib/addSpace";
-import ImageUpload from "./ImageUpload";
 
 type Props = {
   session: any;
@@ -9,7 +8,6 @@ type Props = {
 
 const AddSpaceModal = ({ session }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [imgUrl, setImgUrl] = useState("");
 
   const [formData, setFormData] = useState({
     title: "",
@@ -29,16 +27,19 @@ const AddSpaceModal = ({ session }: Props) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    addSpace(formData, session, imgUrl);
+    addSpace(formData, session);
   };
 
   return (
-    <div>
-      <div
-        className="w-[12rem] h-full bg-accent-muted rounded-lg flex justify-center items-center"
-        onClick={() => setIsOpen(true)}
-      >
-        Add Space
+    <div className="my-8">
+      <div className="flex justify-between">
+        <p>3 Spaces</p>
+        <button
+          className="px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm"
+          onClick={() => setIsOpen(true)}
+        >
+          Add Space
+        </button>
       </div>
       <Dialog
         open={isOpen}
@@ -99,13 +100,6 @@ const AddSpaceModal = ({ session }: Props) => {
                   onChange={(e) => handleFormDataChange(e)}
                 />
               </div>
-
-              <ImageUpload
-                url={imgUrl}
-                onUpload={(url) => {
-                  setImgUrl(url);
-                }}
-              />
 
               <input
                 className="w-full rounded-sm border-none bg-[#C6DBCE] p-2"

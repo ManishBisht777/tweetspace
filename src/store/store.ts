@@ -7,6 +7,7 @@ interface userSession extends Session {
 
 type StoreValues = {
   session: userSession;
+  setSession: (session: userSession) => void;
 };
 
 const useStore = create<StoreValues>((set, get) => ({
