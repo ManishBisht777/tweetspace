@@ -8,7 +8,7 @@ type Props = {};
 const explore = (props: Props) => {
   useEffect(() => {
     (async () => {
-      console.log(await getAllSpaces(0, 1));
+      console.log(await getAllSpaces(0, 2));
     })();
   }, []);
 
