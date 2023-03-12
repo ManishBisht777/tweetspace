@@ -17,7 +17,7 @@ export const getMyPosts = async (userId: any) => {
 export const getAllSpaces = async (start: number, end: number) => {
   const { data: spaces, error } = await supabase
     .from("spaces")
-    .select("*")
+    .select(`*, users(*)`)
     .range(start, end);
 
   return spaces;
