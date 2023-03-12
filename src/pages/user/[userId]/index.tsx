@@ -5,6 +5,7 @@ import { getMyPosts } from "@/server/lib/getSpaces";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { FaAssistiveListeningSystems } from "react-icons/fa";
 
 type Props = {};
 
@@ -22,9 +23,6 @@ const UserProfile = (props: Props) => {
   return (
     <Container>
       <div className="flex justify-center items-center flex-col md:gap-1">
-        {/* replace with image later */}
-        {/* <div className="w-20 h-20 rounded-full bg-gray-500 md:w-[7rem] md:h-[7rem]"></div> */}
-
         <Image
           className="rounded-full md:w-[7rem] md:h-[7rem] w-20 h-20"
           src={session?.user?.image}
@@ -54,14 +52,18 @@ const UserProfile = (props: Props) => {
         </div>
       </div>
 
-      <div>
+      <div className="my-8 flex justify-between items-center">
+        <p className="flex gap-1 items-center px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm">
+          <FaAssistiveListeningSystems /> {spaces && spaces.length} Space
+        </p>
         <AddSpaceModal session={session} />
-        <div className="flex gap-3 flex-wrap justify-center">
-          {spaces &&
-            spaces.map((space: any, idx: any) => (
-              <SpaceCard key={idx} space={space} />
-            ))}
-        </div>
+      </div>
+
+      <div className="flex gap-3 flex-wrap justify-center">
+        {spaces &&
+          spaces.map((space: any, idx: any) => (
+            <SpaceCard key={idx} space={space} />
+          ))}
       </div>
     </Container>
   );

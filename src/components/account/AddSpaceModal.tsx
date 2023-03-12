@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { addSpace } from "@/server/lib/addSpace";
 import { RxCross2 } from "react-icons/rx";
+import { AiOutlinePlus } from "react-icons/ai";
+import { BiTimeFive } from "react-icons/bi";
 
 type Props = {
   session: any;
@@ -31,18 +33,14 @@ const AddSpaceModal = ({ session }: Props) => {
   };
 
   return (
-    <div className="my-8">
-      <div className="flex justify-between">
-        <p className="px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm">
-          3 Spaces
-        </p>
-        <button
-          className="px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm"
-          onClick={() => setIsOpen(true)}
-        >
-          Add Space
-        </button>
-      </div>
+    <>
+      <button
+        className="flex gap-1 items-center px-4 py-2 rounded-full bg-skin-inverted text-skin-inverted text-sm"
+        onClick={() => setIsOpen(true)}
+      >
+        <AiOutlinePlus />
+        Add Space
+      </button>
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
@@ -75,9 +73,12 @@ const AddSpaceModal = ({ session }: Props) => {
                 onChange={(e) => handleFormDataChange(e)}
               />
 
-              <div className="flex justify-between">
+              <div className="flex justify-between items-center">
+                <p className="flex gap-3 items-center text-xl text-skin-base">
+                  <BiTimeFive /> Time
+                </p>
                 <input
-                  className="w-[49%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
+                  className="w-[60%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                   type="time"
                   name="start"
                   placeholder="Start time"
@@ -112,7 +113,7 @@ const AddSpaceModal = ({ session }: Props) => {
           </Dialog.Panel>
         </div>
       </Dialog>
-    </div>
+    </>
   );
 };
 

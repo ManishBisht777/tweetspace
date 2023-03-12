@@ -11,7 +11,7 @@ const explore = (props: Props) => {
 
   useEffect(() => {
     (async () => {
-      setSpaces(await getAllSpaces(0, 2));
+      setSpaces(await getAllSpaces(0, 10));
     })();
   }, []);
 
