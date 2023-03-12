@@ -5,10 +5,8 @@ export const getMyPosts = async (userId: any) => {
 
   const { data, error } = await supabase
     .from("spaces")
-    .select("*")
+    .select(`*, users(*)`)
     .eq("created_by", userId);
-
-  console.log(data, "my posts");
 
   if (error) console.log(error, "error from getMyposts");
   return data;

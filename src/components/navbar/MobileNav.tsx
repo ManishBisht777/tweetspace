@@ -37,7 +37,11 @@ function MobileNav({ navOpen, setNavOpen, children }: Props) {
             {/* top bar */}
             <div className="sticky inset-x-0 top-0 flex items-center justify-between border-b border-skin-base bg-skin-base p-4">
               {/* <Logo normal small /> */}
-              <p>Logo</p>
+              <img
+                className="w-10"
+                src="/logoNoText.png"
+                alt="tweetspace logo"
+              />
               <button
                 onClick={() => setNavOpen(false)}
                 className="rounded-full bg-skin-inverted px-2 py-0.5 text-sm font-medium text-skin-inverted"

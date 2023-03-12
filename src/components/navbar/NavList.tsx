@@ -1,56 +1,15 @@
 import Container from "@/layouts/Container";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavItem from "./NavItem";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import ProfileIcon from "./ProfileIcon";
-import useStore from "@/store/store";
-import { UserSession } from "@/types/type";
-
-const MenuLinks = [
-  {
-    to: "/",
-    name: "Home",
-  },
-  {
-    to: "/explore",
-    name: "Explore",
-  },
-  {
-    to: "/creators",
-    name: "Creators",
-  },
-  {
-    to: "/spaces",
-    name: "Spaces",
-  },
-];
-
-const SecondaryLinks = [
-  {
-    to: "/github",
-    name: "Github",
-  },
-  {
-    to: "/twitter",
-    name: "Twitter",
-  },
-  {
-    to: "/bmc",
-    name: "Buy Me Coffee",
-  },
-];
+import { MenuLinks, SecondaryLinks } from "@/data/menuList";
 
 type Props = {};
 
 function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
   const { data: session } = useSession();
-
-  // const setSession = useStore((state) => state.setSession);
-
-  // useEffect(() => {
-  //   setSession(session);
-  // }, [session]);
 
   return (
     <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">
@@ -67,11 +26,10 @@ function NavList({}: Props) {
           ))}
         </ul>
       </div>
-      <img src="/logoNoText.png" className="w-[3rem]" alt="" />
-      {/* <div className="hidden lg:block">Logo</div> */}
+      <img src="/logoNoText.png" className="w-[3rem] hidden lg:flex" alt="" />
       <div className="mt-5 lg:mt-0">
-        <p className=" text-xl font-semibold lg:hidden">Secondary Menu</p>
-        <ul className="flex flex-col items-center ml-3 lg:ml-0 mt-3 lg:mt-0 lg:flex-row lg:gap-8">
+        <p className=" text-xl font-semibold lg:hidden">Others</p>
+        <ul className="flex flex-col lg:items-center ml-3 lg:ml-0 mt-3 lg:mt-0 lg:flex-row lg:gap-8">
           {SecondaryLinks.map((menuItem) => (
             <NavItem
               activeLink={activeLink}
@@ -80,11 +38,13 @@ function NavList({}: Props) {
               menuItem={menuItem}
             />
           ))}
-          {session ? (
-            <ProfileIcon session={session} />
-          ) : (
-            <button onClick={() => signIn()}>Sign in</button>
-          )}
+          <div className="mt-3 lg:mt-0">
+            {session ? (
+              <ProfileIcon session={session} />
+            ) : (
+              <button onClick={() => signIn()}>Sign in</button>
+            )}
+          </div>
         </ul>
       </div>
     </Container>

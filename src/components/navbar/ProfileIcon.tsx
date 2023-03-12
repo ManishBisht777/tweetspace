@@ -27,21 +27,22 @@ const ProfileIcon = ({ session }: Props) => {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Menu.Items className="absolute right-0 -bottom-20 p-3 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-skin-base font-normal">
+        <div className="absolute w-4 h-4 rotate-45 rounded-sm bg-accent-base top-[.7rem] right-4 z-10"></div>
+        <Menu.Items className="absolute right-0 my-5 p-3 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-skin-base font-normal border-2 border-accent-inverted/50 flex gap-2 flex-col">
           <Menu.Item>
             <Link
-              className="flex gap-2 items-center justify-start"
+              className="flex gap-2 items-center justify-start p-2 bg-accent-base/10 rounded-sm text-accent-base"
               href={`/user/${session.id}`}
             >
-              <BiUserCircle /> Profile
+              <BiUserCircle className="text-xl" /> Profile
             </Link>
           </Menu.Item>
           <Menu.Item>
             <button
-              className="flex gap-2 items-center justify-start"
+              className="flex gap-2 items-center justify-start p-2 bg-accent-inverted/10 rounded-sm text-accent-inverted"
               onClick={() => signOut()}
             >
-              <BiLogOut /> Logout
+              <BiLogOut className="text-xl" /> Logout
             </button>
           </Menu.Item>
         </Menu.Items>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MobileNav from "./MobileNav";
 import NavList from "./NavList";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 type Props = {
   isMobile?: boolean;
@@ -13,8 +14,10 @@ const Navbar = ({ isMobile }: Props) => {
     return (
       <div className="text-skin-base font-medium px-4">
         <div className="flex justify-between items-center py-8">
-          <button onClick={() => setNavOpen(true)}>Open</button>
-          <p>Logo</p>
+          <button className="text-2xl" onClick={() => setNavOpen(true)}>
+            <GiHamburgerMenu />
+          </button>
+          <img className="w-10" src="/logoNoText.png" alt="tweetspace logo" />
         </div>
         <MobileNav navOpen={navOpen} setNavOpen={setNavOpen}>
           <NavList />
