@@ -36,7 +36,7 @@ export default function App({
         `}
       </style>
       <SessionProvider session={session}>
-        <ThemeProvider>
+        <ThemeProvider attribute="class">
           {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
           <main className={`${robotto.variable} ${montserrat.variable}`}>
             <Component {...pageProps} />

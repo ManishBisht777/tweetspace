@@ -12,10 +12,10 @@ const Navbar = ({ isMobile }: Props) => {
 
   if (isMobile)
     return (
-      <div className="text-skin-base font-medium px-4">
+      <div className="text-skin-base px-4">
         <div className="flex justify-between items-center py-8">
           <button className="text-2xl" onClick={() => setNavOpen(true)}>
-            <GiHamburgerMenu />
+            <GiHamburgerMenu className="dark:text-skin-inverted" />
           </button>
           <img className="w-10" src="/logoNoText.png" alt="tweetspace logo" />
         </div>
@@ -26,7 +26,7 @@ const Navbar = ({ isMobile }: Props) => {
     );
 
   return (
-    <nav className="text-skin-base font-medium">
+    <nav className="text-skin-base">
       <NavList />
     </nav>
   );

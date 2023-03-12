@@ -13,7 +13,7 @@ function MobileNav({ navOpen, setNavOpen, children }: Props) {
     <Transition.Root show={navOpen} as={Fragment}>
       <Dialog
         onClose={() => setNavOpen(false)}
-        className={`fixed inset-0 z-50 h-screen w-full p-4 text-skin-base`}
+        className={`fixed inset-0 z-50 h-screen w-full p-4 text-skin-base dark:text-skin-inverted`}
       >
         <Transition.Child
           enter="transition duration-100 ease-out"
@@ -33,9 +33,9 @@ function MobileNav({ navOpen, setNavOpen, children }: Props) {
           leaveFrom="transform translate-x-0 opacity-100"
           leaveTo="transform -translate-x-full opacity-0"
         >
-          <Dialog.Panel className="relative h-[calc(100vh-2rem)] w-full max-w-xs overflow-y-auto rounded-lg border border-skin-base bg-skin-base">
+          <Dialog.Panel className="relative h-[calc(100vh-2rem)] w-full max-w-xs overflow-y-auto rounded-lg border border-accent-base bg-skin-base dark:bg-skin-inverted">
             {/* top bar */}
-            <div className="sticky inset-x-0 top-0 flex items-center justify-between border-b border-skin-base bg-skin-base p-4">
+            <div className="sticky inset-x-0 top-0 flex items-center justify-between border-b border-skin-base bg-skin-base p-4 dark:bg-skin-inverted">
               {/* <Logo normal small /> */}
               <img
                 className="w-10"
@@ -44,7 +44,7 @@ function MobileNav({ navOpen, setNavOpen, children }: Props) {
               />
               <button
                 onClick={() => setNavOpen(false)}
-                className="rounded-full bg-skin-inverted px-2 py-0.5 text-sm font-medium text-skin-inverted"
+                className="rounded-full bg-skin-inverted px-2 py-0.5 text-sm font-medium text-skin-inverted dark:bg-skin-base dark:text-skin-base"
               >
                 close
               </button>

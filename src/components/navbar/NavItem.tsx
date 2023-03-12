@@ -20,7 +20,7 @@ const NavItem = ({ activeLink, setActiveLink, menuItem }: Props) => {
       ${
         isActive
           ? `border-accent-base text-accent-base`
-          : `border-accent-base/50 text-skin-base/50`
+          : `border-accent-base/50 text-skin-base/50 dark:text-skin-inverted/70`
       }
       `}
       key={menuItem.name}

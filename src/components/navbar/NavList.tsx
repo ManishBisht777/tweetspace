@@ -42,6 +42,7 @@ function NavList({}: Props) {
             />
           ))}
           <button
+            className=""
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             Toggle theme
