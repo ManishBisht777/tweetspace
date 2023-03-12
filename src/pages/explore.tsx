@@ -18,7 +18,7 @@ const explore = (props: Props) => {
   return (
     <Container className="flex flex-col items-center mt-5">
       <Search />
-      <h1 className="my-4 text-xl md:text-3xl font-semibold text-skin-base max-w-[25rem] text-center">
+      <h1 className="my-4 text-xl md:text-3xl font-semibold text-skin-base dark:text-skin-inverted/80 max-w-[25rem] text-center">
         Search spaces and creators in one place
       </h1>
       <p className="bg-accent-muted/20 text-accent-muted font-medium px-6 py-1 rounded-full text-sm ">
@@ -27,7 +27,7 @@ const explore = (props: Props) => {
 
       <div className="mt-6">
         {spaces ? (
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex gap-4 flex-wrap">
             {spaces.map((space: any, idx: any) => {
               return <SpaceCard key={idx} space={space} />;
             })}
