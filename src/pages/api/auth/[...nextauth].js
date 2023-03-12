@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 
 export const authOptions = {
   // Configure one or more authentication providers
+  secret: process.env.SUPABASE_JWT_SECRET,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -19,6 +20,8 @@ export const authOptions = {
   callbacks: {
     async session({ session, user }) {
       const signingSecret = process.env.SUPABASE_JWT_SECRET;
+
+      console.log(signingSecret);
       if (signingSecret) {
         const payload = {
           aud: "authenticated",
