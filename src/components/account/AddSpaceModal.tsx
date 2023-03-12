@@ -47,8 +47,8 @@ const AddSpaceModal = ({ session }: Props) => {
         className="relative z-50"
       >
         <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
-        <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="relative w-full max-w-[22rem] rounded bg-white py-6 px-4">
+        <div className="fixed inset-0 flex items-center justify-center p-4 ">
+          <Dialog.Panel className="relative w-full max-w-[22rem] rounded bg-white py-6 px-4 dark:bg-skin-inverted ">
             <Dialog.Title className="mb-7 font-bold text-accent-base/80 text-xl">
               Add Space
             </Dialog.Title>

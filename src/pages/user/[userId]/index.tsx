@@ -32,21 +32,12 @@ const UserProfile = (props: Props) => {
         <h3 className="text-lg font-semibold text-accent-base md:text-xl">
           Manish Bisht
         </h3>
-        <p className="text-sm text-skin-base text-center md:text-[1rem]">
+        <p className="text-sm text-skin-base dark:text-skin-inverted/60 text-center md:text-[1rem]">
           Lorem, ipsum dolor sit amet consectetur adipisicing.
         </p>
 
         <div className="flex gap-2 text-xs flex-wrap justify-center mt-3">
-          <p className="md:text-[1rem] md:px-2 md:py-1 bg-accent-inverted/20 rounded-sm text-accent-inverted font-medium">
-            html
-          </p>
-          <p className="md:text-[1rem] md:px-2 md:py-1 bg-accent-inverted/20 rounded-sm text-accent-inverted font-medium">
-            html
-          </p>
-          <p className="md:text-[1rem] md:px-2 md:py-1 bg-accent-inverted/20 rounded-sm text-accent-inverted font-medium">
-            html
-          </p>
-          <p className="md:text-[1rem] md:px-2 md:py-1 bg-accent-inverted/20 rounded-sm text-accent-inverted font-medium">
+          <p className="md:text-[1rem] md:px-3 md:py-2 bg-accent-inverted/20 rounded-md text-accent-inverted font-medium">
             html
           </p>
         </div>
