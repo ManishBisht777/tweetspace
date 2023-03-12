@@ -17,10 +17,10 @@ const Features = (props: Props) => {
           <p className="text-sm bg-accent-inverted/10 md:-mx-4 px-6 py-1 rounded-full text-accent-inverted font-medium">
             One stop to Spaces and events
           </p>
-          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-left">
+          <h3 className="text-skin-base dark:text-skin-inverted/80 text-lg font-semibold md:text-xl text-center md:text-left">
             Lorem lol hehe xd damn hehe xd damn
           </h3>
-          <p className="text-skin-base/80 text-sm text-center md:text-left">
+          <p className="text-skin-base/80 dark:text-skin-inverted/60 text-sm text-center md:text-left">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. In,
             corrupti.
           </p>
@@ -30,10 +30,10 @@ const Features = (props: Props) => {
           <p className="text-sm bg-accent-inverted/10 md:-mx-4 px-6 py-1 rounded-full text-accent-inverted font-medium">
             One stop to Spaces and events
           </p>
-          <h3 className="text-skin-base text-lg font-semibold md:text-xl text-center md:text-left">
+          <h3 className="text-skin-base dark:text-skin-inverted/80 text-lg font-semibold md:text-xl text-center md:text-left">
             Lorem lol hehe xd damn hehe xd damn
           </h3>
-          <p className="text-skin-base/80 text-sm text-center md:text-left">
+          <p className="text-skin-base/80 dark:text-skin-inverted/60 text-sm text-center md:text-left">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. In,
             corrupti.
           </p>

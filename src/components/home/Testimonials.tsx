@@ -40,7 +40,7 @@ const Testimonial = () => {
       <div className="mx-auto  md:container px-4 py-24 sm:px-6 sm:py-24 lg:mr-0 lg:pl-8 lg:pr-0">
         <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:items-center lg:gap-x-16">
           <div className="max-w-xl text-center  sm:text-left">
-            <h2 className="text-xl flex flex-col font-bold tracking-tight md:text-2xl text-skin-base">
+            <h2 className="text-xl flex flex-col font-bold tracking-tight md:text-2xl text-skin-base dark:text-skin-inverted/80">
               Dont just take our word for it... Read reviews from our customers
             </h2>
 
@@ -88,7 +88,7 @@ const Testimonial = () => {
             </div>
           </div>
 
-          <div className="-mx-6 shadow-lg border border-gray-300 p-4 lg:col-span-2 lg:mx-0">
+          <div className="-mx-6 shadow-lg border dark:border-none border-gray-300 p-4 lg:col-span-2 lg:mx-0">
             <div className="swiper-container !overflow-hidden">
               <div className="swiper-wrapper">
                 <TestimonialCard />
