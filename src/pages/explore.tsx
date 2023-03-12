@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {};
 
-const explore = (props: Props) => {
+const Explore = (props: Props) => {
   const [spaces, setSpaces] = useState<any>();
 
   useEffect(() => {
@@ -42,4 +42,4 @@ const explore = (props: Props) => {
   );
 };
 
-export default explore;
+export default Explore;

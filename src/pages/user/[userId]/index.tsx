@@ -25,9 +25,10 @@ const UserProfile = (props: Props) => {
       <div className="flex justify-center items-center flex-col md:gap-1">
         <Image
           className="rounded-full md:w-[7rem] md:h-[7rem] w-20 h-20"
-          src={session?.user?.image}
+          src={session?.user?.image ?? ""}
           width={100}
           height={100}
+          alt="user image"
         />
         <h3 className="text-lg font-semibold text-accent-base md:text-xl">
           Manish Bisht
