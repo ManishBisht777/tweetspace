@@ -24,11 +24,6 @@ export const MenuLinks = [
 // secondary menu
 export const SecondaryLinks = [
   {
-    to: "/github",
-    name: "Github",
-    icon: BsGithub,
-  },
-  {
     to: "/twitter",
     name: "Twitter",
     icon: BsTwitter,

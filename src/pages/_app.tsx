@@ -2,8 +2,8 @@ import { SessionProvider } from "next-auth/react";
 import Navbar from "@/components/navbar/Navbar";
 import useArea from "@/hooks/useArea";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 import { Montserrat, Roboto } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 
 const montserrat = Montserrat({
   display: "swap",
@@ -36,10 +36,12 @@ export default function App({
         `}
       </style>
       <SessionProvider session={session}>
-        {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
-        <main className={`${robotto.variable} ${montserrat.variable}`}>
-          <Component {...pageProps} />
-        </main>
+        <ThemeProvider>
+          {width >= 1024 ? <Navbar /> : <Navbar isMobile />}
+          <main className={`${robotto.variable} ${montserrat.variable}`}>
+            <Component {...pageProps} />
+          </main>
+        </ThemeProvider>
       </SessionProvider>
     </>
   );

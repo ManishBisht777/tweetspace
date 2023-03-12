@@ -4,12 +4,15 @@ import NavItem from "./NavItem";
 import { useSession, signIn } from "next-auth/react";
 import ProfileIcon from "./ProfileIcon";
 import { MenuLinks, SecondaryLinks } from "@/data/menuList";
+import { useTheme } from "next-themes";
 
 type Props = {};
 
 function NavList({}: Props) {
   const [activeLink, setActiveLink] = useState<string>("/");
   const { data: session } = useSession();
+
+  const { theme, setTheme } = useTheme();
 
   return (
     <Container className="lg:flex lg:justify-between lg:p-5 lg:items-center">
@@ -38,6 +41,11 @@ function NavList({}: Props) {
               menuItem={menuItem}
             />
           ))}
+          <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          >
+            Toggle theme
+          </button>
           <div className="mt-3 lg:mt-0">
             {session ? (
               <ProfileIcon session={session} />
