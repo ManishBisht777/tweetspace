@@ -67,10 +67,11 @@ function NavList({}: Props) {
           ))}
         </ul>
       </div>
-      <div className="hidden lg:block">Logo</div>
+      <img src="/logoNoText.png" className="w-[3rem]" alt="" />
+      {/* <div className="hidden lg:block">Logo</div> */}
       <div className="mt-5 lg:mt-0">
         <p className=" text-xl font-semibold lg:hidden">Secondary Menu</p>
-        <ul className="flex flex-col ml-3 lg:ml-0 mt-3 lg:mt-0 lg:flex-row lg:gap-8">
+        <ul className="flex flex-col items-center ml-3 lg:ml-0 mt-3 lg:mt-0 lg:flex-row lg:gap-8">
           {SecondaryLinks.map((menuItem) => (
             <NavItem
               activeLink={activeLink}
