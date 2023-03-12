@@ -21,7 +21,6 @@ export const authOptions = {
     async session({ session, user }) {
       const signingSecret = process.env.SUPABASE_JWT_SECRET;
 
-      console.log(signingSecret);
       if (signingSecret) {
         const payload = {
           aud: "authenticated",
