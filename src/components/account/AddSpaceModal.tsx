@@ -11,9 +11,8 @@ const AddSpaceModal = ({ session }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [formData, setFormData] = useState({
-    title: "",
-    description: "",
     date: "",
+    title: "",
     start: "",
     end: "",
     link: "",
@@ -75,27 +74,13 @@ const AddSpaceModal = ({ session }: Props) => {
                 id=""
                 onChange={(e) => handleFormDataChange(e)}
               />
-              <textarea
-                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base "
-                name="description"
-                placeholder="Description"
-                id=""
-                onChange={(e) => handleFormDataChange(e)}
-              />
+
               <div className="flex justify-between">
                 <input
                   className="w-[49%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                   type="time"
                   name="start"
                   placeholder="Start time"
-                  id=""
-                  onChange={(e) => handleFormDataChange(e)}
-                />
-                <input
-                  className="w-[49%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
-                  type="time"
-                  name="end"
-                  placeholder="End time"
                   id=""
                   onChange={(e) => handleFormDataChange(e)}
                 />

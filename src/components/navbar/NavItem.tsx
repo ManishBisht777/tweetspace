@@ -27,7 +27,7 @@ const NavItem = ({ activeLink, setActiveLink, menuItem }: Props) => {
       onClick={() => setActiveLink(menuItem.to)}
       href={menuItem.to}
     >
-      {menuItem.icon && <menuItem.icon />}
+      {menuItem.icon && <menuItem.icon className="lg:hidden flex" />}
       {menuItem.name}
     </Link>
   );
