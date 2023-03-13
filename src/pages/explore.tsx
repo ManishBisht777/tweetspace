@@ -2,18 +2,28 @@ import Search from "@/components/explore/Search";
 import SpaceCard from "@/components/SpaceCard";
 import Container from "@/layouts/Container";
 import { getAllSpaces } from "@/server/lib/getSpaces";
+import useStore from "@/store/store";
 import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 const Explore = (props: Props) => {
-  const [spaces, setSpaces] = useState<any>();
+  // const [spaces, setSpaces] = useState<any>();
+
+  const { spaces, getSpaces } = useStore((state) => ({
+    spaces: state.spaces,
+    getSpaces: state.getSpaces,
+  }));
 
   useEffect(() => {
-    (async () => {
-      setSpaces(await getAllSpaces(0, 10));
-    })();
-  }, []);
+    getSpaces(0, 10);
+  }, [getSpaces]);
+
+  // useEffect(() => {
+  //   (async () => {
+  //     setSpaces(await getAllSpaces(0, 10));
+  //   })();
+  // }, []);
 
   return (
     <Container className="flex flex-col items-center my-10">

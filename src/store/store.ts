@@ -1,25 +1,29 @@
-import { Session } from "next-auth";
+import { getAllSpaces } from "@/server/lib/getSpaces";
+import { space } from "@/types/type";
 import { create } from "zustand";
-
-interface userSession extends Session {
-  id: string;
-}
+import { produce } from "immer";
 
 type StoreValues = {
-  session: userSession;
-  setSession: (session: userSession) => void;
+  spaces: space[] | undefined;
+  getSpaces: (start: number, end: number) => Promise<void>;
 };
 
 const useStore = create<StoreValues>((set, get) => ({
-  session: {
-    id: "",
-    expires: "",
-  },
+  spaces: undefined,
 
-  setSession: (session: userSession) => {
-    set({
-      session: session,
-    });
+  getSpaces: async (start: number, end: number) => {
+    const response = await getAllSpaces(start, end);
+
+    set((state) =>
+      produce(state, (draftState) => {
+        const newData = response ? response : [];
+        //@ts-ignore
+        draftState.spaces = state.spaces
+          ? //@ts-ignore
+            state.spaces.concat(newData)
+          : newData;
+      })
+    );
   },
 }));
 
