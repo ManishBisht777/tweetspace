@@ -3,7 +3,8 @@ import { Dialog } from "@headlessui/react";
 import { addSpace } from "@/server/lib/addSpace";
 import { RxCross2 } from "react-icons/rx";
 import { AiOutlinePlus } from "react-icons/ai";
-import { BiTimeFive } from "react-icons/bi";
+import { BsFillCalendar2DateFill } from "react-icons/bs";
+import { BiTime } from "react-icons/bi";
 
 type Props = {
   session: any;
@@ -30,6 +31,7 @@ const AddSpaceModal = ({ session }: Props) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     addSpace(formData, session);
+    setIsOpen(false);
   };
 
   return (
@@ -46,47 +48,63 @@ const AddSpaceModal = ({ session }: Props) => {
         onClose={() => setIsOpen(false)}
         className="relative z-50"
       >
-        <div className="fixed inset-0 bg-black/50" aria-hidden="true" />
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm"
+          aria-hidden="true"
+        />
         <div className="fixed inset-0 flex items-center justify-center p-4 ">
-          <Dialog.Panel className="relative w-full max-w-[22rem] rounded bg-white py-6 px-4 dark:bg-skin-inverted ">
-            <Dialog.Title className="mb-7 font-bold text-accent-base/80 text-xl">
+          <Dialog.Panel className="relative w-full max-w-[18rem] rounded bg-white py-6 px-4 dark:bg-skin-inverted ">
+            <Dialog.Title className="mb-7 font-bold text-accent-base text-xl">
               Add Space
             </Dialog.Title>
             <form
-              className="flex flex-col gap-2 text-accent-base "
+              className="flex flex-col gap-4 text-accent-base dark:text-skin-inverted"
               onSubmit={(e) => handleSubmit(e)}
             >
               <input
-                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:border-accent-base focus:outline-accent-base"
+                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-none"
                 type="text"
                 name="title"
                 placeholder="Title"
                 id=""
                 onChange={(e) => handleFormDataChange(e)}
               />
-              <input
-                className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
-                type="date"
-                name="date"
-                placeholder="date"
-                id=""
-                onChange={(e) => handleFormDataChange(e)}
-              />
-
-              <div className="flex justify-between items-center">
-                <p className="flex gap-3 items-center text-xl text-skin-base">
-                  <BiTimeFive /> Time
-                </p>
-                <input
-                  className="w-[60%] rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
-                  type="time"
-                  name="start"
-                  placeholder="Start time"
-                  id=""
-                  onChange={(e) => handleFormDataChange(e)}
-                />
+              <div className="w-full flex justify-between">
+                <div className="flex flex-col w-[48%] gap-2">
+                  <label
+                    className="flex gap-3 items-center text-skin-inverted"
+                    htmlFor="date"
+                  >
+                    <BsFillCalendar2DateFill />
+                    Date
+                  </label>
+                  <input
+                    className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
+                    type="date"
+                    name="date"
+                    placeholder="date"
+                    id="Date"
+                    onChange={(e) => handleFormDataChange(e)}
+                  />
+                </div>
+                <div className="flex flex-col w-[48%] gap-2">
+                  <label
+                    className="flex gap-2 items-center text-skin-inverted"
+                    htmlFor="time"
+                  >
+                    <BiTime />
+                    Time
+                  </label>
+                  <input
+                    className="rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
+                    type="time"
+                    name="start"
+                    placeholder="Start time"
+                    id="time"
+                    onChange={(e) => handleFormDataChange(e)}
+                  />
+                </div>
               </div>
-
               <input
                 className="w-full rounded-sm border-none bg-accent-base/20 p-2 focus:outline-accent-base"
                 type="text"
