@@ -1,8 +1,10 @@
+import { space } from "@/types/type";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { formatDate, formatTime } from "./utilities/utility";
 
 type Props = {
-  space: any;
+  space: space;
 };
 
 const SpaceCard = ({ space }: Props) => {
@@ -11,7 +13,8 @@ const SpaceCard = ({ space }: Props) => {
       <div className="flex text-sm">
         <div className="flex flex-col text-skin-inverted w-[80%] gap-1">
           <p>
-            Today @ <span className="text-semibold">7.45</span>
+            {formatDate(space.date)} @{" "}
+            <span className="text-semibold"> {formatTime(space.from)}</span>
           </p>
           <p>{space.title}</p>
         </div>

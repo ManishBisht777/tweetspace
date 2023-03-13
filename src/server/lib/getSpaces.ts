@@ -6,6 +6,7 @@ export const getMyPosts = async (userId: any) => {
   const { data, error } = await supabase
     .from("spaces")
     .select(`*, users(*)`)
+    .order("date , from", { ascending: true })
     .eq("created_by", userId);
 
   if (error) console.log(error, "error from getMyposts");
