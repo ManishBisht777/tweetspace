@@ -16,7 +16,7 @@ const Explore = (props: Props) => {
   }, []);
 
   return (
-    <Container className="flex flex-col items-center mt-5">
+    <Container className="flex flex-col items-center my-10">
       <Search />
       <h1 className="my-4 text-xl md:text-3xl font-semibold text-skin-base dark:text-skin-inverted/80 max-w-[25rem] text-center">
         Search spaces and creators in one place
@@ -25,7 +25,7 @@ const Explore = (props: Props) => {
         Displaying {spaces && spaces.length} results
       </p>
 
-      <div className="mt-6">
+      <div className="mt-10">
         {spaces ? (
           <div className="flex gap-4 flex-wrap">
             {spaces.map((space: any, idx: any) => {
