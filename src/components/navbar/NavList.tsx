@@ -5,6 +5,7 @@ import { useSession, signIn } from "next-auth/react";
 import ProfileIcon from "./ProfileIcon";
 import { MenuLinks, SecondaryLinks } from "@/data/menuList";
 import { useTheme } from "next-themes";
+import { BiSun, BiMoon } from "react-icons/bi";
 
 type Props = {};
 
@@ -42,10 +43,10 @@ function NavList({}: Props) {
             />
           ))}
           <button
-            className=""
+            className="text-2xl text-skin-base/80 dark:text-skin-inverted/80"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
-            Toggle theme
+            {theme === "light" ? <BiSun /> : <BiMoon />}
           </button>
           <div className="mt-3 lg:mt-0">
             {session ? (

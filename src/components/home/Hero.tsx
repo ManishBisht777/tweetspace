@@ -1,5 +1,7 @@
 import Container from "@/layouts/Container";
 import React from "react";
+import { MdOutlineExplore } from "react-icons/md";
+import { BsGithub } from "react-icons/bs";
 
 type Props = {};
 
@@ -22,10 +24,12 @@ const Hero = (props: Props) => {
       </p>
 
       <div className="flex gap-4">
-        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full">
+        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center">
+          <BsGithub />
           Github
         </button>
-        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full">
+        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center">
+          <MdOutlineExplore />
           Explore
         </button>
       </div>
