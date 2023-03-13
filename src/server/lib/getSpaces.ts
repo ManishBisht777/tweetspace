@@ -17,6 +17,7 @@ export const getAllSpaces = async (start: number, end: number) => {
   const { data: spaces, error } = await supabase
     .from("spaces")
     .select(`*, users(*)`)
+    .order("date , from", { ascending: true })
     .range(start, end);
 
   return spaces;
@@ -30,6 +31,7 @@ export const getSpacesByQuery = async (
   const { data: spaces, error } = await supabase
     .from("spaces")
     .select(`*, users(*)`)
+    .order("date , from", { ascending: true })
     .ilike("title", `%${searchQuery}%`)
     .range(start, end);
 
