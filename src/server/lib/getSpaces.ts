@@ -20,3 +20,17 @@ export const getAllSpaces = async (start: number, end: number) => {
 
   return spaces;
 };
+
+export const getSpacesByQuery = async (
+  start: number,
+  end: number,
+  searchQuery: string
+) => {
+  const { data: spaces, error } = await supabase
+    .from("spaces")
+    .select(`*, users(*)`)
+    .ilike("title", `%${searchQuery}%`)
+    .range(start, end);
+
+  return spaces;
+};

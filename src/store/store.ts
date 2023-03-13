@@ -6,6 +6,7 @@ import { produce } from "immer";
 type StoreValues = {
   spaces: space[] | undefined;
   getSpaces: (start: number, end: number) => Promise<void>;
+  setSpaces: (spaces: space[]) => void;
 };
 
 const useStore = create<StoreValues>((set, get) => ({
@@ -18,12 +19,17 @@ const useStore = create<StoreValues>((set, get) => ({
       produce(state, (draftState) => {
         const newData = response ? response : [];
         //@ts-ignore
-        draftState.spaces = state.spaces
-          ? //@ts-ignore
-            state.spaces.concat(newData)
-          : newData;
+        draftState.spaces =
+          state.spaces && newData === draftState.spaces
+            ? //@ts-ignore
+              state.spaces.concat(newData)
+            : newData;
       })
     );
+  },
+
+  setSpaces: (spaces: space[]) => {
+    set({ spaces: spaces });
   },
 }));
 

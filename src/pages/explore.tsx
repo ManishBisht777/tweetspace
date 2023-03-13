@@ -17,7 +17,7 @@ const Explore = (props: Props) => {
 
   useEffect(() => {
     getSpaces(0, 10);
-  }, [getSpaces]);
+  }, []);
 
   // useEffect(() => {
   //   (async () => {
@@ -37,7 +37,7 @@ const Explore = (props: Props) => {
 
       <div className="mt-10">
         {spaces ? (
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap justify-center">
             {spaces.map((space: any, idx: any) => {
               return <SpaceCard key={idx} space={space} />;
             })}
