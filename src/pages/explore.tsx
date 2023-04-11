@@ -1,29 +1,25 @@
 import Search from "@/components/explore/Search";
+import Filter from "@/components/filter/Filter";
 import SpaceCard from "@/components/SpaceCard";
 import Container from "@/layouts/Container";
-import { getAllSpaces } from "@/server/lib/getSpaces";
 import useStore from "@/store/store";
 import React, { useEffect, useState } from "react";
 
 type Props = {};
 
 const Explore = (props: Props) => {
-  // const [spaces, setSpaces] = useState<any>();
+  const [timeFilter, setTimeFilter] = useState<string>("all");
 
   const { spaces, getSpaces } = useStore((state) => ({
     spaces: state.spaces,
     getSpaces: state.getSpaces,
   }));
 
-  useEffect(() => {
-    getSpaces(0, 10);
-  }, []);
+  console.log(timeFilter);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     setSpaces(await getAllSpaces(0, 10));
-  //   })();
-  // }, []);
+  useEffect(() => {
+    getSpaces(0, 10, timeFilter);
+  }, [timeFilter]);
 
   return (
     <Container className="flex flex-col items-center my-10">
@@ -35,6 +31,7 @@ const Explore = (props: Props) => {
         Displaying {spaces && spaces.length} results
       </p>
 
+      <Filter setTimeFilter={setTimeFilter} />
       <div className="mt-10">
         {spaces ? (
           <div className="flex gap-4 flex-wrap justify-center">
