@@ -43,7 +43,7 @@ function NavList({}: Props) {
             />
           ))}
           <button
-            className="text-2xl text-skin-base/80 dark:text-skin-inverted/80"
+            className="text-2xl text-skin-base/80 dark:text-skin-inverted/80 my-3 md:my-0"
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           >
             {theme === "light" ? <BiSun /> : <BiMoon />}
