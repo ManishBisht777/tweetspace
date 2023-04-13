@@ -4,31 +4,21 @@ import { create } from "zustand";
 import { produce } from "immer";
 
 type StoreValues = {
-  spaces: space[] | undefined;
+  spaces: space[] | [];
   getSpaces: (start: number, end: number, time: string) => Promise<void>;
   setSpaces: (spaces: space[]) => void;
 };
 
 const useStore = create<StoreValues>((set, get) => ({
-  spaces: undefined,
+  spaces: [],
 
   getSpaces: async (start: number, end: number, time: string) => {
-    const response = await getAllSpaces(start, end, time);
-
-    set((state) =>
-      produce(state, (draftState) => {
-        const newData = response ? response : [];
-
-        // fix newData === draftState.spaces important
-
-        //@ts-ignore
-        draftState.spaces =
-          state.spaces && newData === draftState.spaces
-            ? //@ts-ignore
-              state.spaces.concat(newData)
-            : newData;
-      })
-    );
+    const response: any = await getAllSpaces(start, end, time);
+    const newData = response ? response : [];
+    console.log(newData, time);
+    set((state) => ({
+      spaces: [...state.spaces, ...newData],
+    }));
   },
 
   setSpaces: (spaces: space[]) => {

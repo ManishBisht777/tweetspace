@@ -1,4 +1,5 @@
 import { space } from "@/types/type";
+import Link from "next/link";
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { formatDate, formatTime } from "./utilities/utility";
@@ -27,7 +28,7 @@ const SpaceCard = ({ space }: Props) => {
       </div>
 
       <button className="hover:gap-3 transition-all hover:font-semibold flex gap-2 justify-center items-center mt-2 w-full py-1 rounded-full mx-auto bg-accent-base text-skin-inverted">
-        Join
+        <Link href={space.link}>Join</Link>
         <BsArrowRight />
       </button>
     </div>

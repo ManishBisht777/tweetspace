@@ -9,17 +9,42 @@ type Props = {};
 
 const Explore = (props: Props) => {
   const [timeFilter, setTimeFilter] = useState<string>("all");
+  const [startLimit, setStartLimit] = useState<number>(0);
+  const [endLimit, setEndLimit] = useState<number>(5);
 
-  const { spaces, getSpaces } = useStore((state) => ({
+  const { spaces, getSpaces, setSpaces } = useStore((state) => ({
     spaces: state.spaces,
     getSpaces: state.getSpaces,
+    setSpaces: state.setSpaces,
   }));
 
   console.log(timeFilter);
 
   useEffect(() => {
-    getSpaces(0, 10, timeFilter);
+    getSpaces(startLimit, endLimit, timeFilter);
+  }, [endLimit]);
+
+  useEffect(() => {
+    setSpaces([]);
+    setStartLimit(0);
+    setEndLimit(5);
   }, [timeFilter]);
+
+  function handleScroll() {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      console.log("fetch something");
+      setStartLimit((startLimit) => startLimit + 6);
+      setEndLimit((endLimit) => endLimit + 6);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <Container className="flex flex-col items-center my-10">
