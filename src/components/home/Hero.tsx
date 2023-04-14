@@ -2,6 +2,7 @@ import Container from "@/layouts/Container";
 import React from "react";
 import { MdOutlineExplore } from "react-icons/md";
 import { BsGithub } from "react-icons/bs";
+import Link from "next/link";
 
 type Props = {};
 
@@ -24,13 +25,24 @@ const Hero = (props: Props) => {
       </p>
 
       <div className="flex gap-4">
-        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center">
-          <BsGithub />
-          Github
+        <button className="">
+          <a
+            className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center"
+            target="_blank"
+            href="http://github.com/manishbisht777/tweetspace"
+          >
+            <BsGithub />
+            Github
+          </a>
         </button>
-        <button className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center">
-          <MdOutlineExplore />
-          Explore
+        <button>
+          <Link
+            href="/explore"
+            className="text-sm md:px-6 md:py-2 px-3 py-[.1rem] bg-skin-inverted/95 text-skin-inverted rounded-full flex gap-2 items-center"
+          >
+            <MdOutlineExplore />
+            Explore
+          </Link>
         </button>
       </div>
     </Container>

@@ -52,7 +52,12 @@ function NavList({}: Props) {
             {session ? (
               <ProfileIcon session={session} />
             ) : (
-              <button onClick={() => signIn()}>Sign in</button>
+              <button
+                className=" mx-2 px-2 py-0.5 rounded-full md:flex items-center dark:bg-skin-base bg-skin-inverted font-medium dark:text-skin-base text-skin-inverted  "
+                onClick={() => signIn()}
+              >
+                Sign in
+              </button>
             )}
           </div>
         </ul>

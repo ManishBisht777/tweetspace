@@ -24,7 +24,7 @@ export const MenuLinks = [
 // secondary menu
 export const SecondaryLinks = [
   {
-    to: "/twitter",
+    to: "https://twitter.com/manishbisht9711",
     name: "Twitter",
     icon: BsTwitter,
   },
